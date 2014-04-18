@@ -1,0 +1,46 @@
+DB France 2010 - Base de données des villes françaises 2010
+(auteur : Julien Chanséaume - http://www.bibichette.com/)
+
+Contient la liste des villes françaises (peut-être pas toutes)
+
+
+Fichier france.csv
+========================================
+
+0: code postal
+1 : code insee
+2 : article de la ville (L', Le, La, Les)
+3 : nom de la ville sans article
+4 : ARTICLE de la ville en masjuscule
+5 : nom de ville en majuscule
+6 : libellé de la ville (article + nom)
+7 : code de la région
+8 : nom de la région
+9 : code du département
+10 : nom du département
+11 : latitude
+12 : longitude
+13 : codex (voir http://fr.wikipedia.org/wiki/Soundex)
+14 : double metaphone (voir http://fr.wikipedia.org/wiki/Double_Metaphone)
+
+
+Utilisation
+========================================
+
+J'ai placé un script python permettant de générer un script sql. Il est donné à
+titre d'exemple. A vous de le modifier en fonction...
+
+Pour le lancer (le fichier france.csv doit être dans le même dossier)::
+
+    python gensql.py
+
+un fichier *france-2010.sql* est généré. Attention, si il est déjà présent il
+sera écrasé.
+
+
+Remerciement
+========================================
+
+Pour les longues heures que vous ne passerez pas à rechercher et faire une 
+telle base, j'accepte un petit remerciement ;-) : 
+http://www.bibichette.com/?p=204#trop-sympa
