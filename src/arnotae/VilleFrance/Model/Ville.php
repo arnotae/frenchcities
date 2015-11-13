@@ -1,4 +1,4 @@
-<?php namespace Aamant\VilleFrance\Model;
+<?php namespace arnotae\VilleFrance\Model;
 
 class Ville extends \Eloquent {
 

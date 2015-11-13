@@ -1,12 +1,12 @@
 {
-    "name": "aamant/ville-france",
+    "name": "arnotae/ville-france",
     "description": "Table des villes de france",
     "keywords": ["laravel", "ville", "geo"],
     "license": "MIT",
     "authors": [
         {
-            "name": "Arnaud Amant",
-            "email": "arnaud.amant@gmail.com"
+            "name": "Arnaud Taelman",
+            "email": "arnaud.taelman.pro@gmail.com"
         }
     ],
     "require": {
@@ -19,7 +19,7 @@
             "src/migrations"
         ],
         "psr-0": {
-            "Aamant\\VilleFrance\\": "src/"
+            "arnotae\\VilleFrance\\": "src/"
         }
     },
     "minimum-stability": "stable"

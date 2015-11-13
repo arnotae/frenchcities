@@ -1,4 +1,4 @@
-<?php namespace Aamant\VilleFrance;
+<?php namespace arnotae\VilleFrance;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -18,7 +18,7 @@ class VilleFranceServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('aamant/ville-france');
+		$this->package('arnotae/ville-france');
 	}
 
 	/**
@@ -30,7 +30,7 @@ class VilleFranceServiceProvider extends ServiceProvider {
 	{
 		$this->app['command.ville.load'] = $this->app->share(function($app)
         {
-            return new \Aamant\VilleFrance\Command\LoadData;
+            return new \arnotae\VilleFrance\Command\LoadData;
         });
         $this->commands('command.ville.load');
 	}
