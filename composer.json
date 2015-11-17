@@ -15,9 +15,6 @@
         "symfony/filesystem": "2.4.*"
     },
     "autoload": {
-        "classmap": [
-            "src/migrations"
-        ],
         "psr-0": {
             "arnotae\\VilleFrance\\": "src/"
         }
