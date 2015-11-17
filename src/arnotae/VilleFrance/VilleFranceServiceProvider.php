@@ -11,6 +11,9 @@ class VilleFranceServiceProvider extends ServiceProvider {
 	 */
 	protected $defer = false;
 
+	protected $vendor  = 'arnotae';
+
+	protected $package = 'ville-france';
 	/**
 	 * Bootstrap the application events.
 	 *
@@ -18,7 +21,11 @@ class VilleFranceServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('arnotae/ville-france');
+		$this->register();
+
+		$this->publishes([
+			__DIR__.'/../../migrations/' => database_path('migrations')
+		], 'migrations');
 	}
 
 	/**
@@ -29,10 +36,10 @@ class VilleFranceServiceProvider extends ServiceProvider {
 	public function register()
 	{
 		$this->app['command.ville.load'] = $this->app->share(function($app)
-        {
-            return new \arnotae\VilleFrance\Command\LoadData;
-        });
-        $this->commands('command.ville.load');
+		{
+			return new \arnotae\VilleFrance\Command\LoadData;
+		});
+		$this->commands('command.ville.load');
 	}
 
 	/**

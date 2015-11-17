@@ -81,14 +81,12 @@ class LoadData extends Command {
 
 		$now = \Carbon\Carbon::now();
 
-		while (null != ($line = fgets($resource))){
-			$line = preg_replace('/"/', '', $line);
-			$line = explode(',' ,$line);
+		while (null != ($line = fgetcsv($resource, null, ',', '"'))){
+			if (array(null) === $line) continue;
 
 			// 0:code postal, 1:insee, 2:article, 3:ville, 4:ARTICLE, 5:VILLE, 6:libelle,
 			// 7:region, 8:nom region, 9:dep, 10:nom dep, 11:latitude, 12:longitude,
 			// 13:soundex, 14:metaphone
-
 			$csv[] = [
 				'postcode'			=> $line[0],
 				'insee'				=> $line[1],
@@ -148,12 +146,10 @@ class LoadData extends Command {
 
 		$now = \Carbon\Carbon::now();
 
-		while (null != ($line = fgets($resource))){
-			$line = preg_replace('/"/', '', $line);
-			$line = explode(',' ,$line);
+		while (null != ($line = fgetcsv($resource, null, ',', '"'))){
+			if (array(null) === $line) continue;
 
 			// 0:code region, 1:code departement, 2:cheflieu, 3:tncc, 4:DEPARTEMENT, 5:departement
-
 			$csv[] = [
 				'code'				=> $line[1],
 				'name'				=> $line[5],
@@ -206,12 +202,10 @@ class LoadData extends Command {
 
 		$now = \Carbon\Carbon::now();
 
-		while (null != ($line = fgets($resource))){
-			$line = preg_replace('/"/', '', $line);
-			$line = explode(',' ,$line);
+		while (null != ($line = fgetcsv($resource, null, ',', '"'))){
+			if (array(null) === $line) continue;
 
 			// 0:code, 1:cheflieu, 2:tncc, 3:REGION, 4:region
-
 			$csv[] = [
 				'code'				=> $line[0],
 				'name'				=> $line[4],

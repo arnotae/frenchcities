@@ -1,25 +1,35 @@
 Ville de France
 ===============
 
-I've just changed the database organisation from the original version :
+[![Laravel 5.0](https://img.shields.io/badge/Laravel-5.0-orange.svg?style=flat-square)](http://laravel.com)
+[![Source](https://img.shields.io/badge/source-arnotae%2Fville--france-blue.svg?style=flat-square)](https://github.com/arnotae/ville-france)
+[![License](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](https://tldrlegal.com/license/mit-license)
 
-* Added some information in **ville**
-* Added tables **departement** and **region**
+Database organisation change from the original version :
+
+* Add some information in **ville**
+* Add tables **departement** and **region**
 
 Installation
 ------------
 
-Just create a `composer.json` file for your project:
+Add to `composer.json` file:
 
 ``` json
 {
     "require": {
-        "arnotae/ville-france": "@stable"
+        "arnotae/ville-france": "~1.0"
     }
+    "repositories": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/arnotae/ville-france"
+        }
+    ],
 }
 ```
 
-Add to file app.config.php
+Add to `config/app.php` file:
 
 ``` php
 'providers' => array(
@@ -28,10 +38,12 @@ Add to file app.config.php
 	...
 ```
 
-Add to file app.config.php
+In terminal:
 
 ``` bash
-php artisan migrate --package arnotae/ville-france
+composer update
+php artisan vendor:publish
+php artisan migrate
 php artisan ville:load
 ```
 
