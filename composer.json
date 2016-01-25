@@ -1,7 +1,7 @@
 {
-    "name": "arnotae/ville-france",
-    "description": "Table des villes de france",
-    "keywords": ["laravel", "ville", "geo"],
+    "name": "arnotae/frenchcities",
+    "description": "Mysql table of french cities for Laravel 5",
+    "keywords": ["laravel", "ville", "geo", "france", "city", "cities", "french"],
     "license": "MIT",
     "authors": [
         {
@@ -12,11 +12,12 @@
     "require": {
         "php": ">=5.3.0",
         "illuminate/support": "~5.0",
-        "symfony/filesystem": "2.4.*"
+        "symfony/filesystem": "2.4.*",
+        "laravel/framework": ">=5.0"
     },
     "autoload": {
         "psr-0": {
-            "arnotae\\VilleFrance\\": "src/"
+            "arnotae\\FrenchCities\\": "src/"
         }
     },
     "minimum-stability": "stable"

@@ -1,32 +1,23 @@
-Ville de France
+Cities of France
 ===============
 
 [![Laravel 5.0](https://img.shields.io/badge/Laravel-5.0-orange.svg?style=flat-square)](http://laravel.com)
-[![Source](https://img.shields.io/badge/source-arnotae%2Fville--france-blue.svg?style=flat-square)](https://github.com/arnotae/ville-france)
+[![Source](https://img.shields.io/badge/source-arnotae%2Ffrenchcities-blue.svg?style=flat-square)](https://github.com/arnotae/frenchcities)
 [![License](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](https://tldrlegal.com/license/mit-license)
 
 Database organisation change from the original version :
 
-* Add some information in **ville**
-* Add tables **departement** and **region**
+* Pass to English
+* Add some informations in **cities**
+* Add tables **departments** and **regions**
 
 Installation
 ------------
 
-Add to `composer.json` file:
+Require with `composer`:
 
-``` json
-{
-    "require": {
-        "arnotae/ville-france": "~1.0"
-    }
-    "repositories": [
-        {
-          "type": "vcs",
-          "url": "https://github.com/arnotae/ville-france"
-        }
-    ],
-}
+```
+composer require barryvdh/laravel-ide-helper
 ```
 
 Add to `config/app.php` file:
@@ -34,7 +25,7 @@ Add to `config/app.php` file:
 ``` php
 'providers' => array(
 	...
-	'arnotae\VilleFrance\VilleFranceServiceProvider',
+	'arnotae\FrenchCities\FrenchCitiesServiceProvider',
 	...
 ```
 
@@ -44,7 +35,7 @@ In terminal:
 composer update
 php artisan vendor:publish
 php artisan migrate
-php artisan ville:load
+php artisan city:load
 ```
 
 Credit

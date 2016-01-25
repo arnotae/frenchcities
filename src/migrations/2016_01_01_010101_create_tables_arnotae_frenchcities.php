@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableVilles extends Migration {
+class CreateTablesArnoTaeFrenchCities extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,7 +12,7 @@ class CreateTableVilles extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('villes', function(Blueprint $table) {
+		Schema::create('cities', function(Blueprint $table) {
 			$table->increments('id');
 			$table->string('postcode', 5)->index();
 			$table->string('insee', 5);
@@ -25,8 +25,8 @@ class CreateTableVilles extends Migration {
 			$table->string('region_code', 20);
 			$table->string('department', 255);
 			$table->string('department_code', 20);
-			$table->string('longitude');
-			$table->string('latitude');
+			$table->string('longitude')->index();
+			$table->string('latitude')->index();
 			$table->timestamps();
 		});
 
@@ -59,7 +59,7 @@ class CreateTableVilles extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('villes');
+		Schema::drop('cities');
 		Schema::drop('departements');
 		Schema::drop('regions');
 	}

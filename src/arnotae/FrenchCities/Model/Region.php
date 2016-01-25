@@ -1,4 +1,4 @@
-<?php namespace arnotae\VilleFrance\Model;
+<?php namespace arnotae\FrenchCities\Model;
 
 class Region extends \Eloquent {
 

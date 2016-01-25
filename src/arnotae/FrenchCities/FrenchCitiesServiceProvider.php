@@ -1,8 +1,8 @@
-<?php namespace arnotae\VilleFrance;
+<?php namespace arnotae\FrenchCities;
 
 use Illuminate\Support\ServiceProvider;
 
-class VilleFranceServiceProvider extends ServiceProvider {
+class FrenchCitiesServiceProvider extends ServiceProvider {
 
 	/**
 	 * Indicates if loading of the provider is deferred.
@@ -13,7 +13,7 @@ class VilleFranceServiceProvider extends ServiceProvider {
 
 	protected $vendor  = 'arnotae';
 
-	protected $package = 'ville-france';
+	protected $package = 'frenchcities';
 	/**
 	 * Bootstrap the application events.
 	 *
@@ -35,11 +35,11 @@ class VilleFranceServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		$this->app['command.ville.load'] = $this->app->share(function($app)
+		$this->app['command.city.load'] = $this->app->share(function($app)
 		{
-			return new \arnotae\VilleFrance\Command\LoadData;
+			return new \arnotae\FrenchCities\Command\LoadData;
 		});
-		$this->commands('command.ville.load');
+		$this->commands('command.city.load');
 	}
 
 	/**

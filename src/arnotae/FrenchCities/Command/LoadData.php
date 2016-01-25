@@ -1,4 +1,4 @@
-<?php namespace arnotae\VilleFrance\Command;
+<?php namespace arnotae\FrenchCities\Command;
 
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
@@ -16,14 +16,14 @@ class LoadData extends Command {
 	 *
 	 * @var string
 	 */
-	protected $name = 'ville:load';
+	protected $name = 'city:load';
 
 	/**
 	 * The console command description.
 	 *
 	 * @var string
 	 */
-	protected $description = 'Charge les données dans les tables "villes", "departements" et "regions"';
+	protected $description = 'Load datas in table "cities", "departments" and "regions"';
 
 	protected $max_per_request = null;
 
@@ -46,20 +46,20 @@ class LoadData extends Command {
 	{
 		$this->max_per_request = $this->option('max-per-request');
 
-		$this->fireVille();
+		$this->fireCity();
 		$this->fireDepartement();
 		$this->fireRegion();
 
 	}
 
 	/**
-	 * Execute for ville
+	 * Execute for city
 	 */
-	private function fireVille()
+	private function fireCity()
 	{
-		$this->info('** In progress: villes **');
+		$this->info('** In progress: cities **');
 
-		\DB::table('villes')->truncate();
+		\DB::table('cities')->truncate();
 
 		$filename = realpath(dirname(__FILE__) . '/../../../data/france.csv');
 		$this->info('Filename: ' . $filename);
@@ -106,13 +106,13 @@ class LoadData extends Command {
 			];
 		}
 
-		$this->info('Nombre de villes a importer: ' . count($csv));
+		$this->info('Number of cities to import: ' . count($csv));
 
 		do {
 			$max = count($csv)> $this->max_per_request ? $this->max_per_request: count($csv);
 			$slice = array_splice($csv, 0, $max);
 
-			\DB::table('villes')->insert($slice);
+			\DB::table('cities')->insert($slice);
 
 		} while (count($csv));
 	}
@@ -122,9 +122,9 @@ class LoadData extends Command {
 	 */
 	private function fireDepartement()
 	{
-		$this->info('** In progress: departements **');
+		$this->info('** In progress: departments **');
 
-		\DB::table('departements')->truncate();
+		\DB::table('departments')->truncate();
 
 		$filename = realpath(dirname(__FILE__) . '/../../../data/departements.csv');
 		$this->info('Filename: ' . $filename);
@@ -162,13 +162,13 @@ class LoadData extends Command {
 			];
 		}
 
-		$this->info('Nombre de departements a importer: ' . count($csv));
+		$this->info('Number of departements to import: ' . count($csv));
 
 		do {
 			$max = count($csv)> $this->max_per_request ? $this->max_per_request: count($csv);
 			$slice = array_splice($csv, 0, $max);
 
-			\DB::table('departements')->insert($slice);
+			\DB::table('departments')->insert($slice);
 
 		} while (count($csv));
 	}
@@ -217,7 +217,8 @@ class LoadData extends Command {
 			];
 		}
 
-		$this->info('Nombre de regions a importer: ' . count($csv));
+		$this->info('Number of regions to import: ' . count($csv));
+
 
 		do {
 			$max = count($csv)> $this->max_per_request ? $this->max_per_request: count($csv);
@@ -246,7 +247,7 @@ class LoadData extends Command {
 	protected function getOptions()
 	{
 		return array(
-			array('max-per-request', null, InputOption::VALUE_OPTIONAL, 'Nombre de ligne maximum part requete', 2000),
+			array('max-per-request', null, InputOption::VALUE_OPTIONAL, 'Number of line maximum per request', 2000),
 		);
 	}
 
