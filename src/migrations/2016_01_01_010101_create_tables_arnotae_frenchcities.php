@@ -30,7 +30,7 @@ class CreateTablesArnoTaeFrenchCities extends Migration {
 			$table->timestamps();
 		});
 
-		Schema::create('departements', function(Blueprint $table) {
+		Schema::create('departments', function(Blueprint $table) {
 			$table->increments('id');
 			$table->string('code', 5)->index();
 			$table->string('name', 255)->index();
@@ -60,7 +60,7 @@ class CreateTablesArnoTaeFrenchCities extends Migration {
 	public function down()
 	{
 		Schema::drop('cities');
-		Schema::drop('departements');
+		Schema::drop('departments');
 		Schema::drop('regions');
 	}
 
