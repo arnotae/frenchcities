@@ -17,7 +17,7 @@ Installation
 Require with `composer`:
 
 ```
-composer require barryvdh/laravel-ide-helper
+composer require arnotae/frenchcities
 ```
 
 Add to `config/app.php` file:
