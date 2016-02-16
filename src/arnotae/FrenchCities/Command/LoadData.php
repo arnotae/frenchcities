@@ -95,6 +95,7 @@ class LoadData extends Command {
 				'article_up'		=> $line[4],
 				'name_up'			=> $line[5],
 				'slug'				=> Str::slug($line[3]),
+				'clean'				=> $line[6],
 				'region'			=> Str::lower($line[8]),
 				'region_code'		=> $line[7],
 				'department'		=> Str::lower($line[10]),

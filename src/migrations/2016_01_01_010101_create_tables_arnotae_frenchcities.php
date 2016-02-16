@@ -21,6 +21,7 @@ class CreateTablesArnoTaeFrenchCities extends Migration {
 			$table->string('article_up', 10);
 			$table->string('name_up', 255)->index();
 			$table->string('slug', 255)->index();
+			$table->string('clean', 255)->index();
 			$table->string('region', 255);
 			$table->string('region_code', 20);
 			$table->string('department', 255);
